@@ -1,17 +1,28 @@
-// const heading = React.createElement('h1', { id: 'heading'}, 'Hello World From React')
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const parent = React.createElement('div', {id: 'parent'}, 
-    [React.createElement('div', {id: 'child1'}, [
-        React.createElement('h1', {}, 'I m h1 Tag'),
-        React.createElement('h2', {}, 'Im h2 Tag') 
-    ]),
-    React.createElement('div', {id: 'child2'}, [
-        React.createElement('h1', {}, 'I m h1 Tag'),
-        React.createElement('h2', {}, 'Im h2 Tag') 
-    ])
-]
+// JSX (transpilled before it reaches the JS) - Parcel - Babel
+
+// JSX => React.createElement => Object => HTMLELement(render)
+
+const elem = <span>Its Element</span>
+
+const Title = () => (
+    <h1 id="heading">
+    React using JSX {elem}
+    </h1>
+);
+
+
+const HeadingComponent = () => (
+    <div id="container">
+        {Title()}
+        <Title></Title>
+        <Title />
+        <h1 className="heading">React Funcitonal Component</h1>
+    </div>
 )
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(parent)
+root.render(<HeadingComponent />)
