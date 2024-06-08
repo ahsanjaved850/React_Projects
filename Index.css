@@ -25,7 +25,9 @@
     padding: 10px;
     width: 200px;
 }
-
+h4 {
+    color: black;
+}
 .res-card:hover{
     cursor: pointer;
     border: 1px solid black;
@@ -51,7 +53,7 @@ h3 {
 .shimmer-card {
     height: 300px;
     width: 200px;
-    color: rgb(54, 52, 52);
+    color: rgb(154, 154, 154);
     margin: 10px;
 }
 .login {
