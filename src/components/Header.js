@@ -14,19 +14,19 @@ const Header = () => {
     //     console.log('Rendered')
     // }, [btnNameReact])
     return (
-        <div className="header">
+        <div className="flex justify-between bg-slate-100 shadow-md mb-2">
             <div>
-            <img className="logo" src={LOGO_URL}></img>
+            <img className="w-40" src={LOGO_URL}></img>
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Online Status: {onlineStatus ? "🟢"  : "🔴" }</li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/grocery">Grocery</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
-                    <li>Cart</li>
-                    <button className="login" 
+            <div className="flex items-center">
+                <ul className="flex p-4 m-1">
+                    <li className="px-2 font-bold font-large">Online Status: {onlineStatus ? "🟢"  : "🔴" }</li>
+                    <li className="px-2 font-bold font-large hover:bg-slate-200"><Link to="/">Home</Link></li>
+                    <li className="px-2 font-bold font-large hover:bg-slate-200"><Link to="/grocery">Grocery</Link></li>
+                    <li className="px-2 font-bold font-large hover:bg-slate-200"><Link to="/about">About Us</Link></li>
+                    <li className="px-2 font-bold font-large hover:bg-slate-200"><Link to="/contact">Contact Us</Link></li>
+                    <li className="px-2 font-bold font-large hover:bg-slate-200">Cart</li>
+                    <button className="px-2 font-bold font-large hover:bg-slate-200" 
                         onClick={() => {
                             btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login") 
                         }

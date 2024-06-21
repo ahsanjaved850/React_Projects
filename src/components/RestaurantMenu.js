@@ -9,14 +9,13 @@ const RestaurantMenu = () => {
 
   if (resInfo === null) return <Shimmer />;
 
-  const { name, cuisines, costForTwoMessage} = resInfo?.cards?.[2]?.card?.card?.info;
+  const { name, cuisines} = resInfo?.cards?.[2]?.card?.card?.info;
   const { itemCards } = resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card;
   return (
-    <div className='menu'>
-      <h1>{name}</h1>
-      <h2>{cuisines.join(", ")}</h2>
-      <h3>{costForTwoMessage}</h3>
-      <h3>Menu</h3>
+    <div className="m-4 p-4 w-[400px] h-auto border-[3px] border-solid border-black">
+      <h1 className="text-3xl font-bold">{name}</h1>
+      <h2 className="font-semibold">{cuisines.join(", ")}</h2>
+      <h3 className="text-xl font-semibold">Menu</h3>
       <ul>
         {itemCards?.map(item => (
           <li key={item.card.info.id}>
