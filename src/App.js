@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import UserContext from "../utils/UserContext.js";
 // import Grocery from "./components/Grocery";
 
 // Chunking
@@ -18,12 +19,32 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const Grocery = lazy(() => import("./components/Grocery"))
 
+const About = lazy(() => import("./components/About"))
+
 const AppLayout = () => {
+
+    const [userName, setUserName] = useState();
+
+    // Authentication
+    useEffect(() => {
+        const data = {
+            name: "Ahsan Javed"
+        }
+        setUserName(data.name)
+    },[])
+
     return (
-        <div className="app">
-        <Header></Header>
-        <Outlet></Outlet>
-        </div>
+        // default value
+        <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+            {/* Ahsan Javed */}
+            <div className="app">
+            {/* <UserContext.Provider value={{loggedInUser: "S A"}}> */}
+                {/* S A */}
+                <Header></Header>
+            {/* </UserContext.Provider> */}
+            <Outlet></Outlet>
+            </div>
+        </UserContext.Provider>
     )
 }
 
