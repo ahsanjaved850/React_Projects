@@ -36,3 +36,11 @@
    -Contact
    -Address
  
+
+# Redux Toolkit
+  -install @reduxjs/toolkit and react redux
+  -build our store
+  -connect our store to the app
+  -slice(cardSlice)
+  -dispatch(action)
+  -selector

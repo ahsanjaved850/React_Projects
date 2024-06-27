@@ -1,9 +1,16 @@
 import { useContext } from "react";
 import { IMG_CDN_URL } from "../../utils/constants";
 import UserContext from "../../utils/UserContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/cartSlice";
 
 const RestaurantCard = (props) => {
     const {resData} = props
+
+    const dispatch = useDispatch()
+    const handleAddItem = () => {
+        dispatch(addItem("pizza"))
+    }
 
     const { loggedInUser } = useContext(UserContext)
 
@@ -17,6 +24,7 @@ const RestaurantCard = (props) => {
             <h4 >{sla?.slaString}</h4>
             <h4 >{costForTwo} </h4>
             <h4 >User: {loggedInUser} </h4>
+            <button onClick={handleAddItem}>Add +</button>
         </div>
     )
 }

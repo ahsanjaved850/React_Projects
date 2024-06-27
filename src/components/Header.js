@@ -3,12 +3,15 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import UserContext from "../../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const [btnNameReact, setBtnNameReact] = useState("Login")
     const onlineStatus = useOnlineStatus();
 
     const { loggedInUser } = useContext(UserContext)
+
+    const cartItem = useSelector((store) => store.cart.items)
     // console.log(loggedInUser)
 
     // if no dependency array => useEffect is called on every render
@@ -29,7 +32,7 @@ const Header = () => {
                     <li className="px-2 font-bold font-large hover:bg-slate-200"><Link to="/grocery">Grocery</Link></li>
                     <li className="px-2 font-bold font-large hover:bg-slate-200"><Link to="/about">About Us</Link></li>
                     <li className="px-2 font-bold font-large hover:bg-slate-200"><Link to="/contact">Contact Us</Link></li>
-                    <li className="px-2 font-bold font-large hover:bg-slate-200">Cart</li>
+                    <li className="px-2 font-bold font-large hover:bg-slate-200">Cart ({cartItem.length} items)</li>
                     <button className="px-2 font-bold font-large hover:bg-slate-200" 
                         onClick={() => {
                             btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login") 
