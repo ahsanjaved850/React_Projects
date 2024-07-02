@@ -40,9 +40,10 @@ const Body = () => {
     return listOfRestaurant?.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="flex m-2">
-                <div className="search">
+                <div>
                     <input
                         type="text"
+                        data-testid="searchInput"
                         className="border border-solid border-black rounded-3xl"
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
